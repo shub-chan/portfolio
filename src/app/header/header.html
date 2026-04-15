@@ -1,0 +1,30 @@
+<header class="bg-gray-900 text-white shadow">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+    
+    <!-- Logo / Name -->
+    <h1 class="text-xl font-bold">Shubham Chanda</h1>
+
+    <!-- Navigation -->
+    <nav class="space-x-6 hidden md:block">
+      <a routerLink="/" class="hover:text-blue-400">Home</a>
+      <a routerLink="/about" class="hover:text-blue-400">About</a>
+      <a routerLink="/projects" class="hover:text-blue-400">Projects</a>
+      <a routerLink="/contact" class="hover:text-blue-400">Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button (click)="toggleMenu()" class="md:hidden">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isOpen) {
+    <div class="md:hidden px-4 pb-4 space-y-2">
+      <a routerLink="/" (click)="isOpen=false" class="block">Home</a>
+      <a routerLink="/about" (click)="isOpen=false" class="block">About</a>
+      <a routerLink="/projects" (click)="isOpen=false" class="block">Projects</a>
+      <a routerLink="/contact" (click)="isOpen=false" class="block">Contact</a>
+    </div>
+  }
+</header>
