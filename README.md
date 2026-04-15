@@ -1,63 +1,99 @@
-# PortfolioFrontend
+# Docker Setup Guide
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+# Prerequisites
 
-## Development server
+Make sure **Docker** is installed on your system.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+# Build Docker Image
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Run the following command to build the Docker image:
 
 ```bash
-ng generate component component-name
+docker build -t <image-name> .
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Example:
 
 ```bash
-ng generate --help
+docker build -t my-app:1 .
 ```
 
-## Building
+---
 
-To build the project run:
+# Run Docker Container
+
+Run the container using:
 
 ```bash
-ng build
+docker run <image-name>
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Example:
 
 ```bash
-ng test
+docker run my-app
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+# Run with Port Mapping (Optional)
+
+If your app runs on a port (e.g., Angular/Nginx):
 
 ```bash
-ng e2e
+docker run -d -p 8080:80 <image-name>
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Then open:
 
-## Additional Resources
+```
+http://localhost:8080
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# portfolio
-# portfolio
-# portfolio
-# portfolio
+---
+
+# Check Running Containers
+
+```bash
+docker ps
+```
+
+---
+
+# View Logs
+
+```bash
+docker logs <container-id>
+```
+
+---
+
+# Stop Container
+
+```bash
+docker stop <container-id>
+```
+
+---
+
+#  Remove Container
+
+```bash
+docker rm <container-id>
+```
+
+---
+
+# Notes
+
+* Ensure your `Dockerfile` exists in the root directory.
+* Use `.dockerignore` to exclude unnecessary files.
+* Always rebuild image after code changes.
+
+---
+
+#  Done!
+
+Your Docker container should now be running successfully 🚀
